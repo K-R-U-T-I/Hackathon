@@ -1,0 +1,23 @@
+1.Researched about the information as required for the maintainance of garden and setteled on the following features to work on
+  -Real time monitoring of various sensor values such as :
+                    LDR(Sunlight)
+                    Moisture
+                    dht11(Temperature and Humidity)
+                    PIR(to check presence of animal for security).
+  -Water control system.
+  -Shade control system.
+2.Decided components.
+ -LDR
+ -Moisture sensor
+ -MCP3008
+ -dht11
+ -dc motors(available)
+ -PIR(available)
+ -capacitors
+ -resistors(available)
+ -Plastic pipes
+ -BreadBoard(available)
+ -Wires(available)
+ -Raspberry Pi(available)
+3. Decided to explore aws,azure IOT platforms to decide which to use.
+ 

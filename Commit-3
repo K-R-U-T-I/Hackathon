@@ -1,0 +1,80 @@
+//LDR + Moisture sensor code
+#define ldr_in A0
+#define moist_in A1
+int ldr_out, moist_out;
+void setup(){
+ 
+  Serial.begin(9600);
+  delay(500);//Delay to let system boot
+}//end "setup()"
+ 
+void loop(){
+  //Start of Program 
+
+   ldr_out =  analogRead(ldr_in);
+   Serial.print("Sunlight : ");
+   Serial.print(ldr_out); 
+
+   moist_out = analogRead(moist_in);
+   moist_out = map(moist_out,1023,0,0,100);
+   Serial.print("    Mositure : ");
+   Serial.println(moist_out);
+   delay(1000);
+ 
+}// end loop() 
+--------------------------------------
+//pir code
+int pirValue;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  delay(500);
+  pinMode(12,INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+   pirValue = digitalRead(12);
+   if(pirValue == HIGH)
+   {
+      Serial.print("HIGH_MOTION_DETECTED");
+   }
+   else
+   {
+      Serial.print("LOW_MOTION_DETECTED");
+   }
+ 
+}
+-------------------------------------
+//dht11 code
+#include "dht.h"
+#define dht_apin A0 // Analog Pin sensor is connected to
+ 
+dht DHT;
+ 
+void setup(){
+ 
+  Serial.begin(9600);
+  delay(500);//Delay to let system boot
+  Serial.println("DHT11 Humidity & temperature Sensor\n\n");
+  delay(1000);//Wait before accessing Sensor
+ 
+}//end "setup()"
+ 
+void loop(){
+  //Start of Program 
+ 
+    DHT.read11(dht_apin);
+    
+    Serial.print("Current humidity = ");
+    Serial.print(DHT.humidity);
+    Serial.print("%  ");
+    Serial.print("temperature = ");
+    Serial.print(DHT.temperature); 
+    Serial.println("C  ");
+    
+    delay(2500);//Wait 5 seconds before accessing sensor again.
+ 
+  //Fastest should be once every two seconds.
+ 
+}// end loop() 
